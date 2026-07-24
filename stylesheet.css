@@ -3,10 +3,20 @@
     padding: 0;
 
     font-family: Offbit Dot;
-    color: slateblue;
+    color: var(--text);
 
-    scrollbar-color: slateblue rgba(0,0,0,0);
+    scrollbar-color: var(--text) rgba(0,0,0,0);
     scrollbar-width: thin;
+}
+[data-theme=dark] {
+    --bg: black;
+    --text: slateblue;
+    --overlay: darkslateblue;
+}
+[data-theme=light] {
+    --bg: white;
+    --text: slateblue;
+    --overlay: mediumpurple;
 }
 
 @font-face {
@@ -31,7 +41,7 @@
 }
 
 body {
-    background: white;
+    background: var(--bg);
 
     min-height: 100%;
     max-height: 100vh;
@@ -44,7 +54,7 @@ header, main, footer {
 }
 
 header {
-    height: 500px;
+    height: 666px;
     align-content: space-evenly;
 }
 
@@ -55,11 +65,30 @@ main {
 footer {
     height: 100px;
     align-content: space-evenly;
+
+    text-align: center;
 }
 
-footer > p {
+footer > * {
+    display: inline;
     font-family: OffBit Dot Bold;
     font-size: 1.25em;
+    margin: 5px;
+}
+
+#switch {
+    appearance: none;
+    background-color: var(--text);
+    color: var(--bg);
+    border: none;
+    box-shadow: none;
+    padding: 5px;
+    border-radius: 1px;
+    transition: background-color 0.3s, padding 0.3s;
+}
+#switch:hover {
+    background-color: var(--overlay);
+    padding: 4px;#
 }
 
 #title {
@@ -73,7 +102,7 @@ footer > p {
 .typewriter {
 
     position: absolute;
-    top: 350px;
+    top: 420px;
     right: 15vw;
 
     display: flex;
@@ -83,7 +112,7 @@ footer > p {
 .typewriter > p {
     overflow: hidden;
     white-space: nowrap;
-    border-right: 4px solid slateblue;
+    border-right: 4px solid var(--text);
     padding-right: 10px;
     animation: typing 4s steps(20) forwards,
         blink 1.25s step-end infinite;
@@ -119,7 +148,7 @@ footer > p {
 .overlay {
     display: none;
     background: black;
-    background: linear-gradient(0deg, mediumpurple 0%,  rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(0deg, var(--overlay) 0%,  rgba(255, 255, 255, 0) 100%);
 
     mix-blend-mode: hard-light;
 
@@ -149,6 +178,8 @@ footer > p {
     max-height: 97%;
 
     object-fit: contain;
+
+    animation: fadeIn 0.1s normal;
 }
 
 [popover]:popover-open {
@@ -159,5 +190,14 @@ footer > p {
 }
 
 [popover]::backdrop {
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.85);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

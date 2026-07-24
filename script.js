@@ -1,5 +1,6 @@
 const page = document.getElementById("body");
 window.onload = function () {
+    page.setAttribute("data-theme", "light");
     getImages();
     fillGallery();
 }
@@ -73,3 +74,13 @@ function fillGallery() {
 function display(elem) { elem.setAttribute("style", "display: block;"); }
 
 function hide(elem) { elem.setAttribute("style", "display: none;"); }
+
+const themeSwitch = document.getElementById("switch");
+themeSwitch.addEventListener("click", function () { toggleTheme(); })
+
+function toggleTheme() {
+    let theme = page.getAttribute("data-theme");
+
+    if (theme == "dark") { page.setAttribute("data-theme", "light"); }
+    if (theme == "light") { page.setAttribute("data-theme", "dark"); }
+}
