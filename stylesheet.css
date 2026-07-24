@@ -42,10 +42,20 @@ footer {
     align-content: space-evenly;
 }
 
-.title {
+#heading {
+    width: 75vw;
+}
+#title {
     font-family: Offbit Dot Bold;
-    font-size: 10em;
+    font-size: 15em;
+    line-height: 0.8em;
+    color: slateblue;
+}
+#subtitle {
 
+    text-align: right;
+
+    font-size: 5em;
     color: slateblue;
 }
 
