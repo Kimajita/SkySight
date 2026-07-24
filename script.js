@@ -55,6 +55,7 @@ function fillGallery() {
 
         popup.setAttribute("popover", "auto");
         popup.src = gallery.source + id + gallery.suffix;
+        popup.addEventListener("click", function () { this.togglePopover(); });
         page.appendChild(popup);
 
         button.innerText = id;

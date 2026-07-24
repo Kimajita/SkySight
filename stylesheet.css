@@ -2,7 +2,8 @@
     margin: 0;
     padding: 0;
 
-    font-family: "OffBit Dot";
+    font-family: Offbit Dot;
+    color: slateblue;
 
     scrollbar-color: slateblue rgba(0,0,0,0);
     scrollbar-width: thin;
@@ -16,10 +17,21 @@
     src: url("fonts/OffBit-DotBold.ttf");
     font-family: "OffBit Dot Bold";
 }
+@font-face {
+    src: url("fonts/OffBit-DotBold.ttf");
+    font-family: title;
+}
+@font-face {
+    src: url("fonts/Junicode.ttf");
+    font-family: subtitle;
+}
+@font-face {
+    src: url("fonts/Junicode.ttf");
+    font-family: type;
+}
 
 body {
     background: white;
-    color: black;
 
     min-height: 100%;
     max-height: 100vh;
@@ -45,13 +57,17 @@ footer {
     align-content: space-evenly;
 }
 
+footer > p {
+    font-family: OffBit Dot Bold;
+    font-size: 1.25em;
+}
+
 #title {
     text-align: left;
     width: 67vw;
 
-    font-family: Offbit Dot Bold;
+    font-family: title;
     font-size: 15em;
-    color: slateblue;
 }
 
 .typewriter {
@@ -67,9 +83,9 @@ footer {
 .typewriter > p {
     overflow: hidden;
     white-space: nowrap;
-    border-right: 4px dotted slateblue;
+    border-right: 4px solid slateblue;
     padding-right: 10px;
-    animation: typing 5s steps(24) forwards,
+    animation: typing 4s steps(20) forwards,
         blink 1.25s step-end infinite;
 }
 
@@ -77,8 +93,8 @@ footer {
 @keyframes blink { 50% { border-color: transparent; } }
 
 #subtitle {
+    font-family: subtitle;
     font-size: 5em;
-    color: slateblue;
 }
 
 .gallery {
@@ -136,7 +152,6 @@ footer {
 }
 
 [popover]:popover-open {
-
     position: fixed;
 
     align-self: center;
