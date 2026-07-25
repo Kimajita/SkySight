@@ -1,6 +1,13 @@
 const page = document.getElementById("body");
 window.onload = function () {
-    page.setAttribute("data-theme", "light");
+
+    let theme = "light";
+    if (localStorage.getItem("theme") != null) {
+        theme = localStorage.getItem("theme");
+    }
+
+    page.setAttribute("data-theme", theme);
+
     getImages();
     fillGallery();
 }
@@ -81,6 +88,9 @@ themeSwitch.addEventListener("click", function () { toggleTheme(); })
 function toggleTheme() {
     let theme = page.getAttribute("data-theme");
 
-    if (theme == "dark") { page.setAttribute("data-theme", "light"); }
-    if (theme == "light") { page.setAttribute("data-theme", "dark"); }
+    if (theme == "dark") { theme = "light"; }
+    else if (theme == "light") { theme = "dark"; }
+
+    page.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
 }
