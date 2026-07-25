@@ -9,22 +9,27 @@
         <script src="script.js" async></script>
     </head>
     <body id="body">
-        <header>
-            <p id="title">dude,</p>
-
+        <header id="top">
+            <div class="my-grid">
+                <div class="my-picture"></div>
+                <div class="my-title"><p id="my-title">dude,</p></div>
+                <div class="my-subtitle"><p id="my-subtitle">check out the sky!</p></div>
+                <div class="my-nav">
+                    <button id="nav-1">→</button>
+                    <button id="nav-2"><a href="#myGallery">↓</a></button>
+                </div>
+            </div>
         </header>
 
         <main>
             <div id="myGallery" class="gallery">
             </div>
+            <button id="arrow"><a href="#top" style="text-decoration: none; font-family: subtitle;">↑</a></button>
         </main>
 
         <footer>
             <p>Juri Wende</p>
             <button id="switch">Theme</button>
         </footer>
-        <div class="typewriter">
-            <p id="subtitle">check out the sky!</p>
-        </div>
     </body>
 </html>

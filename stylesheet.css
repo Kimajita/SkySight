@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
 * {
     margin: 0;
     padding: 0;
@@ -10,13 +14,15 @@
 }
 [data-theme=dark] {
     --bg: black;
-    --text: slateblue;
-    --overlay: darkslateblue;
+    --contrast: white;
+    --text: mediumpurple;
+    --shadow: rgba(42, 37, 67, 0.5);
 }
 [data-theme=light] {
     --bg: white;
+    --contrast: black;
     --text: slateblue;
-    --overlay: mediumpurple;
+    --shadow: rgba(42, 42, 73, 0.5);
 }
 
 @font-face {
@@ -49,12 +55,12 @@ body {
 }
 
 header, main, footer {
-    justify-self: center; justify-items: center;
-    height: 100%; width: 100%;
+    display: block;
+    margin: 0 auto;
 }
 
 header {
-    height: 666px;
+    height: 100vh;
     align-content: space-evenly;
 }
 
@@ -76,60 +82,25 @@ footer > * {
     margin: 5px;
 }
 
-#switch {
-    appearance: none;
-    background-color: var(--text);
-    color: var(--bg);
-    border: none;
-    box-shadow: none;
-    padding: 5px;
-    border-radius: 1px;
-    transition: background-color 0.3s, padding 0.3s;
-}
-#switch:hover {
-    background-color: var(--overlay);
-    padding: 4px;
-}
-
-#title {
-    text-align: left;
-    width: 67vw;
-
-    font-family: title;
-    font-size: 15em;
-}
-
-.typewriter {
-
+#nextImg {
     position: absolute;
-    top: 420px;
-    right: 15vw;
+    top: 0; right: 7%;
 
-    display: flex;
-    justify-content: right;
-}
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--contrast);
 
-.typewriter > p {
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 4px solid var(--text);
-    padding-right: 10px;
-    animation: typing 4s steps(20) forwards,
-        blink 1.25s step-end infinite;
-}
-
-@keyframes typing { from { width: 0; } to { width: 100%; } }
-@keyframes blink { 50% { border-color: transparent; } }
-
-#subtitle {
     font-family: subtitle;
-    font-size: 5em;
+    font-size: 13em;
 }
 
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 0.25em;
+
+    margin: 50px auto;
 }
 
 .container {
@@ -144,13 +115,17 @@ footer > * {
     aspect-ratio: 1 / 1;
     object-fit: cover;
 }
+.item:hover {
+    animation: smaller 0.15s ease-in-out;
+    width: 95%; height: 95%;
+}
+@keyframes smaller {
+    from { width: 100%; height: 100%; }
+    to { width: 95%; height: 95%; }
+}
 
 .overlay {
     display: none;
-    background: black;
-    background: linear-gradient(0deg, var(--overlay) 0%,  rgba(255, 255, 255, 0) 100%);
-
-    mix-blend-mode: hard-light;
 
     position: absolute;
     left: 0; bottom: 0;
@@ -168,7 +143,13 @@ footer > * {
     color: white;
     font-size: 2em;
     text-align: center;
-    text-shadow: 1px 1px 3px black;
+    text-shadow: 1px 1px 2px var(--shadow);
+
+    padding-top: 7px;
+}
+.popBtn:hover {
+    animation: arrow 0.15s ease-in-out;
+    padding-top: 0px;
 }
 
 [popover] {
@@ -200,4 +181,154 @@ footer > * {
     to {
         opacity: 1;
     }
+}
+
+#arrow {
+    appearance: none;
+    border: none;
+
+    background-color: var(--bg);
+    color: var(--text);
+
+    display: block;
+    margin: 0px auto;
+
+    width: 50px;
+    height: 50px;
+
+    font-size: 3em;
+    padding-top: 7px;
+}
+#arrow:hover {
+    animation: arrow 0.15s ease-in-out;
+    padding-top: 0px;
+}
+
+@keyframes arrow {
+    from {
+        padding-top: 7px;
+    }
+    to {
+        padding-top: 0px;
+    }
+}
+
+#switch {
+    appearance: none;
+    border: none;
+    border-radius: 1px;
+
+    background-color: var(--text);
+    color: var(--bg);
+
+    width: 75px;
+    height: 35px;
+}
+#switch:hover {
+    animation: button 0.15s ease-in-out;
+    width: 70px;
+    height: 30px;
+}
+
+@keyframes button {
+    from {
+        width: 75px;
+        height: 35px;
+    }
+    to {
+        width: 70px;
+        height: 30px;
+    }
+}
+
+
+/*#########################################################################################################*/
+
+.my-grid {
+    background-color: var(--bg);
+
+    width: 100%; height: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(15, minmax(0px, 1fr));
+    grid-template-rows: repeat(15, minmax(0px, 1fr));
+}
+
+.my-picture {
+    grid-column: 1 / 14;
+    grid-row: 3 / 15;
+
+    background-image: url("imgs/webp/013.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    box-shadow: inset -1px -3px 25px 3px var(--shadow);
+    overflow: hidden;
+}
+
+.my-title {
+    grid-column: 2 / 12;
+    grid-row: 7 / 11;
+}
+#my-title {
+    font-family: title;
+    font-size: 17em;
+
+    color: var(--bg);
+    text-shadow: 5px 5px var(--contrast);
+}
+.my-subtitle {
+    grid-column: 3 / 15;
+    grid-row: 12 / 14;
+
+    display: flex;
+    justify-content: right;
+}
+#my-subtitle {
+
+    font-family: subtitle;
+    font-size: 5em;
+    color: var(--contrast);
+    background-color: var(--bg);
+    box-shadow: 5px 5px 0px var(--contrast);
+
+    /*typewriter effect*/
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: right;
+    padding-right: 15px;
+
+    border-right: 4px solid var(--text);
+    animation: typing 3s steps(19) forwards,
+        blink 1.25s step-end infinite;
+}
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+@keyframes blink { 50% { border-color: transparent; } }
+
+.my-nav {
+    grid-column: 13 / 15;
+    grid-row: 4 / 7;
+
+    display: grid;
+    grid-auto-flow: rows;
+    gap: 15px;
+}
+#nav-1, #nav-2 {
+    background-color: var(--bg);
+    appearance: none;
+    border: none;
+
+    color: var(--contrast);
+    box-shadow: 5px 5px 0px var(--text);
+
+    font-family: title;
+    font-size: 7em;
+
+    width: 115px; height: 115px;
+}
+#nav-1 > a, #nav-2 > a {
+    text-decoration: none;
+    color: var(--contrast);
+    font-family: title;
 }

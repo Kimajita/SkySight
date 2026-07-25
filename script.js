@@ -13,7 +13,7 @@ window.onload = function () {
 }
 
 const gallery = {
-    element: document.getElementById("myGallery"),
+    element: document.querySelector("#myGallery"),
     source: "imgs/webp/",
     suffix: ".webp",
     images: [],
@@ -78,13 +78,11 @@ function fillGallery() {
     }
 }
 
-function display(elem) { elem.setAttribute("style", "display: block;"); }
+function display(elem) { elem.style.display = "block"; }
+function hide(elem) { elem.style.display = "none"; }
 
-function hide(elem) { elem.setAttribute("style", "display: none;"); }
-
-const themeSwitch = document.getElementById("switch");
-themeSwitch.addEventListener("click", function () { toggleTheme(); })
-
+const themeSwitch = document.querySelector("#switch");
+themeSwitch.addEventListener("click", function () { toggleTheme(); });
 function toggleTheme() {
     let theme = page.getAttribute("data-theme");
 
