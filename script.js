@@ -1,4 +1,5 @@
 const page = document.querySelector("#body");
+const titleImg = document.querySelector(".my-picture");
 window.onload = function () {
 
     let theme = "light";
@@ -8,8 +9,38 @@ window.onload = function () {
 
     page.setAttribute("data-theme", theme);
 
+    titleImg.id = "002";
+    setTitleImg(titleImg.id);
+
     getImages();
     fillGallery();
+}
+
+function setTitleImg(id) {
+    let background = "background-image: url('imgs/webp/" + id + ".webp')";
+    titleImg.setAttribute("style", background);
+}
+
+
+const nextBtn = document.querySelector("#nav-1");
+const lastBtn = document.querySelector("#nav-0");
+nextBtn.addEventListener("click", function () { nextTitleImg(); });
+lastBtn.addEventListener("click", function () { lastTitleImg(); });
+function nextTitleImg() {
+    let index = parseInt(titleImg.id);
+
+    index += 1;
+    if (index < gallery.length) { titleImg.id = gallery.images[index]; }
+    else { titleImg.id = "001"; }
+    setTitleImg(titleImg.id);
+}
+function lastTitleImg() {
+    let index = parseInt(titleImg.id);
+    index -= 1;
+
+    if (index == 0) { titleImg.id = images[gallery.length - 1]; }
+    else { titleImg.id = gallery.images[index]; }
+    setTitleImg(titleImg.id);
 }
 
 const gallery = {
