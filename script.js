@@ -1,4 +1,4 @@
-const page = document.getElementById("body");
+const page = document.querySelector("#body");
 window.onload = function () {
 
     let theme = "light";
