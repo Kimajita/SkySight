@@ -27,7 +27,7 @@ body:has(:popover-open) :is(button, a) {
 [data-theme=dark] {
     --bg: black;
     --contrast: white;
-    --text: mediumpurple;
+    --text: steelblue;
     --shadow: rgba(42, 37, 67, 0.5);
 
     --blend: screen;
@@ -37,7 +37,7 @@ body:has(:popover-open) :is(button, a) {
 [data-theme=light] {
     --bg: white;
     --contrast: black;
-    --text: slateblue;
+    --text: steelblue;
     --shadow: rgba(42, 42, 73, 0.5);
 
     --blend: multiply;
@@ -46,23 +46,24 @@ body:has(:popover-open) :is(button, a) {
 }
 
 @font-face {
-    src: url("fonts/OffBit-Dot.ttf");
+    src: url("../fonts/OffBit-Dot.ttf");
     font-family: "OffBit Dot";
+    color: steelblue;
 }
 @font-face {
-    src: url("fonts/OffBit-DotBold.ttf");
+    src: url("../fonts/OffBit-DotBold.ttf");
     font-family: "OffBit Dot Bold";
 }
 @font-face {
-    src: url("fonts/OffBit-DotBold.ttf");
+    src: url("../fonts/OffBit-DotBold.ttf");
     font-family: title;
 }
 @font-face {
-    src: url("fonts/Junicode.ttf");
+    src: url("../fonts/Junicode.ttf");
     font-family: subtitle;
 }
 @font-face {
-    src: url("fonts/Junicode.ttf");
+    src: url("../fonts/Junicode.ttf");
     font-family: type;
 }
 
