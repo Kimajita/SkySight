@@ -9,8 +9,9 @@ window.onload = function () {
 
     page.setAttribute("data-theme", theme);
 
-    titleImg.id = "027";
+    titleImg.id = "017";
     setTitleImg(titleImg.id);
+    setNumber(titleImg.id);
 
     getImages();
     fillGallery();
@@ -21,6 +22,15 @@ function setTitleImg(id) {
     titleImg.setAttribute("style", background);
 }
 
+const n1 = document.querySelector("#n-1");
+const n2 = document.querySelector("#n-2");
+const n3 = document.querySelector("#n-3");
+function setNumber(id) {
+    let arr = id.split('');
+    n1.innerHTML = arr[0];
+    n2.innerHTML = arr[1];
+    n3.innerHTML = arr[2];
+}
 
 const nextBtn = document.querySelector("#nav-1");
 const lastBtn = document.querySelector("#nav-0");
@@ -33,6 +43,7 @@ function nextTitleImg() {
     if (index < gallery.length) { titleImg.id = gallery.images[index]; }
     else { titleImg.id = "001"; }
     setTitleImg(titleImg.id);
+    setNumber(titleImg.id);
 }
 function lastTitleImg() {
     let index = parseInt(titleImg.id);
@@ -41,6 +52,7 @@ function lastTitleImg() {
     if (index == 0) { titleImg.id = images[gallery.length - 1]; }
     else { titleImg.id = gallery.images[index]; }
     setTitleImg(titleImg.id);
+    setNumber(titleImg.id);
 }
 
 const gallery = {
