@@ -135,3 +135,6 @@ function toggleTheme() {
     page.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
 }
+
+const themeSwitch1 = document.querySelector("#my-switch");
+themeSwitch1.addEventListener("click", function () { toggleTheme(); });
