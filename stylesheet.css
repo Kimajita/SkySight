@@ -11,6 +11,8 @@ html {
 }
 body:has(:popover-open) :is(button, a) {
     pointer-events: none;
+    scrollbar-width: none;
+
 }
 * {
     margin: 0;
